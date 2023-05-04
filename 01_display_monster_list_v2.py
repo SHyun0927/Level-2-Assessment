@@ -28,4 +28,4 @@ def display_monsters():
     easygui.msgbox(msg)
 
 
-display_monsters()  # call the function to display the monsters
+display_monsters()  
