@@ -9,7 +9,7 @@ menu_choices = ["Add monster", "Delete monster", "Search monster",
 choice = easygui.buttonbox(msg="Welcome to Monster card game\n"
                       "Choose what do you want to do.",
                   title="Monster Card Game", choices=menu_choices)
-
+otty
 if choice == "Add monster":
     easygui.msgbox("Adding monster")
 
