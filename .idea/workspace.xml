@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="437652b5-8685-48ac-ba8b-5e2e54973730" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/03_change_stat_v1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03_change_stat_v2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03_change_stat_v3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03_change_stat_v4.5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00_monster_card_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/00_monster_card_v1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_display_monster_list_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/01_display_monster_list_v2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02_add_monster_v4.py" beforeDir="false" afterPath="$PROJECT_DIR$/02_add_monster_v4.py" afterDir="false" />
-    </list>
+    <list default="true" id="437652b5-8685-48ac-ba8b-5e2e54973730" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,8 +44,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/emsup/OneDrive - Middleton Grange School/Year 12/Computer Science/2.7 Programming/Level-2-Assessment&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emsup/OneDrive - Middleton Grange School/Year 12/Computer Science/2.7 Programming/Level-2-Assessment&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -61,7 +55,7 @@
       <recent name="C:\Users\emsup\OneDrive - Middleton Grange School\Year 12\Computer Science\2.7 Programming\Level-2-Assessment" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.00_monster_card_v1">
     <configuration name="00_monster_card_v1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Level-2-Assessment" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +68,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/00_monster_card_v1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -95,6 +90,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/00_monster_card_v2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -116,6 +112,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/00_monster_card_v3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -137,6 +134,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="C:\Users\emsup\OneDrive - Middleton Grange School\Year 12\Computer Science\2.7 Programming\Level-2-Assessment\01_display_monster_list_v1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -158,6 +156,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="C:\Users\emsup\OneDrive - Middleton Grange School\Year 12\Computer Science\2.7 Programming\Level-2-Assessment\01_display_monster_list_v2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -186,6 +185,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682563785529</updated>
       <workItem from="1682563786821" duration="17000" />
+      <workItem from="1683774995447" duration="4000" />
     </task>
     <servers />
   </component>
