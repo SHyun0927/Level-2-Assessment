@@ -44,21 +44,10 @@ def main():
 
                 else:
                     break
-            change_stats()
-            return monster_name
+            change_stats(monster_name)
 
         else:
             easygui.msgbox("This function has not finished yet!")
-
-
-def display_monsters():
-    msg = "List of monsters:\n"
-    for monster_name, monster_stat in card_list.items():
-        msg += f"\n {monster_name} \n"
-        for stat in monster_stat:
-            msg += f'   {stat}: {monster_stat[stat]}, '
-
-    easygui.msgbox(msg)
 
 
 def name_checker():
@@ -80,42 +69,47 @@ def name_checker():
 
 # Function that adds monster card into the dictionary.
 def add_monster_card():
-    while True:
-        name = name_checker()
+    monster_name = name_checker()
 
-        if name in card_list:
-            easygui.msgbox("Error: A monster with that name already exists.")
-
-        else:
-            card_list[name] = {"Strength": 0, "Speed": 0, "Stealth": 0, "Cunning": 0}
-            break
+    card_list[monster_name] = {"Strength": 0, "Speed": 0, "Stealth": 0, "Cunning": 0}
 
     stats = ["Strength", "Speed", "Stealth", "Cunning"]
 
-    values = [easygui.integerbox(f"Enter the {stat} of the monster (1-25):", lowerbound=0, upperbound=25) for stat in
-              stats]
+    values = []
+
+    for stat in stats:
+        value = easygui.integerbox(f"Enter the {stat} of the monster (1-25):\n"
+                                    f"Press 'Cancel' to go back to main menu.",
+                                    lowerbound=1, upperbound=25)
+        if value is None:
+            easygui.msgbox("Returning to main menu...")
+            return
+        else:
+            values.append(value)
 
     card_stats = dict(zip(stats, values))
 
-    card_list[name].update(card_stats)
+    card_list[monster_name].update(card_stats)
 
-    msg = f"The following monster card has been added:\n\nName: {name}\n"
+    msg = f"The following monster card has been added:\n\nName: {monster_name}\n"
 
-    for stat, value in card_list[name].items():
+    for stat, value in card_list[monster_name].items():
         msg += f"{stat}: {value}\n"
 
-    choice = easygui.buttonbox(msg + "\nWhat would you like to do?", choices=["Confirm", "Change Stats"])
+    choice = easygui.buttonbox(msg + "\nWhat would you like to do?",
+                               choices=["Confirm", "Change Stats"])
 
     if choice == "Confirm":
         easygui.msgbox("Monster card added successfully!")
 
     elif choice == "Change Stats":
-        change_stats(name)
+        # change_stats(monster_name)
+        change_stats(monster_name)
 
 
 def change_stats(monster_name):
     # Get the current stats for the monster from the card_list dictionary
-    current_stats = card_list[name]
+    current_stats = card_list[monster_name]
 
     # Create a list of choices that includes the name of the monster and all its stats
     choices = list(current_stats.keys()) + ["Change name", "Exit"]
@@ -138,16 +132,26 @@ def change_stats(monster_name):
             return
         else:
             # Ask for the new value for the chosen stat
-            new_value = easygui.integerbox(f"Enter the new {stat_choice} value for {name} (1-25): ",
-                                           lowerbound=0, upperbound=25)
+            new_value = easygui.integerbox(f"Enter the new {stat_choice} value for {monster_name} (1-25): ",
+                                           lowerbound=1, upperbound=25)
 
             while new_value is not None:
                 # Update the chosen stat in the card_list dictionary
                 current_stats[stat_choice] = new_value
 
                 # Display a message to confirm that the stat has been updated
-                easygui.msgbox(f"The {stat_choice} stat has been updated to {new_value} for {name}.")
+                easygui.msgbox(f"The {stat_choice} stat has been updated to {new_value} for {monster_name}.")
                 break
+
+
+def display_monsters():
+    msg = "List of monsters:\n"
+    for monster_name, monster_stat in card_list.items():
+        msg += f"\n {monster_name} \n"
+        for stat in monster_stat:
+            msg += f'   {stat}: {monster_stat[stat]}, '
+
+    easygui.msgbox(msg)
 
 
 main()
