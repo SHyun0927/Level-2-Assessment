@@ -68,13 +68,18 @@ def change_stats(monster_name):
         # If the user chose to change the name, ask for the new name and update the dictionary
         if stat_choice == "Change name":
             new_name = name_checker()
+
             if new_name is not None:
                 card_list[new_name] = current_stats
+
                 del card_list[monster_name]
+
                 easygui.msgbox(f"The name of the monster has been changed to {new_name}. ")
+
         elif stat_choice == "Exit":
             easygui.msgbox("Returning to the main menu.")
             return
+
         else:
             # Ask for the new value for the chosen stat
             new_value = easygui.integerbox(f"Enter the new {stat_choice} value for {name} (1-25): ",
