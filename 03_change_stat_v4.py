@@ -23,7 +23,12 @@ card_list = {
 def add_monster_card():
     while True:
         # Asks name of the monster, then capitalize first letter.
-        name = easygui.enterbox("Enter the name of the monster:").capitalize()
+        name = easygui.enterbox("Enter the name of the monster:")
+
+        if name is None:
+            return
+
+        name = name.capitalize()
 
         # Check if the monster name is already in the dictionary
         if name in card_list:
@@ -42,14 +47,7 @@ def add_monster_card():
 
     for stat in stats:
         # Asks for the integer value for the stats
-        value = int(easygui.enterbox(f"Enter the {stat} of the monster (1-25):"))
-
-        # If stat is below 1 or higher than 0, program asks user to type again.
-        while value < 1 or value > 25:
-            value = int(easygui.enterbox(f"Invalid input. "
-                                         f"Enter the {stat} of the monster (1-25):"))
-
-        # if value is appropirate, append the value.
+        value = easygui.integerbox(f"Enter the {stat} of the monster (1-25):", upperbound=25, lowerbound=0)
         values.append(value)
 
     # Combine the stats and values lists into a dictionary using dict(zip())
@@ -70,6 +68,7 @@ def add_monster_card():
 
     if choice == "Confirm":
         easygui.msgbox("Monster card added successfully!")
+
     elif choice == "Change Stats":
         change_stats(name)
         return name, stats
@@ -124,6 +123,8 @@ def change_stats(name):
     # If the new value is not between 1 and 25, keep asking until a valid value is entered
     while new_value < 1 or new_value > 25:
         new_value = int(easygui.enterbox(f"Invalid input. Enter the new {stat_choice} value for {name} (1-25):"))
+        if new_value is None:
+            return
 
     # Update the chosen stat in the card_list dictionary
     current_stats[stat_choice] = new_value
@@ -132,9 +133,7 @@ def change_stats(name):
     easygui.msgbox(f"The {stat_choice} stat has been updated to {new_value} for {name}.")
 
 
-
-
 display_monsters()
 add_monster_card()
+easygui.msgbox("Returning to the main menu.")
 display_monsters()
-
