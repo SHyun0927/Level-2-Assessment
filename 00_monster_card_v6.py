@@ -1,4 +1,9 @@
-""""""
+"""
+00_monster_card_v6.py
+This code now includes:
+display_monster(), add_monster(), change_stats(), name_checker(),
+delete_monster(), search_monster() with link with the main routine function.
+"""
 
 import easygui
 
@@ -47,13 +52,10 @@ def main():
                     break
             change_stats(monster_name)
         elif choice == "Delete monster":
-            while True:
-                monster_name = name_checker()
-                if monster_name in card_list:
-                    break
-                else:
-                    easygui.msgbox("Monster does not exist.")
-            delete_monster(monster_name)
+            delete_monster()
+
+        elif choice == "Search monster":
+            search_monster()
 
         else:
             easygui.msgbox("This function has not finished yet!")
@@ -130,17 +132,23 @@ def change_stats(monster_name):
 
         # Ask the user which stat they want to change
         stat_choice = easygui.buttonbox(f"Which stat do you want to change for"
-                                        f"{monster_name}?", choices=choices)
+                                        f" {monster_name}?", choices=choices)
 
         # If the user chose to change the name,
         # ask for the new name and update the dictionary
         if stat_choice == "Change name":
             new_name = name_checker()
+
             if new_name is not None:
                 card_list[new_name] = current_stats
+
                 del card_list[monster_name]
+
                 easygui.msgbox(f"The name of the monster has been changed to "
                                f"{new_name}. ")
+
+                monster_name = new_name
+
         elif stat_choice == "Exit":
             easygui.msgbox("Returning to the main menu.")
             return
@@ -160,7 +168,14 @@ def change_stats(monster_name):
                 break
 
 
-def delete_monster(monster_name):
+def delete_monster():
+    while True:
+        monster_name = name_checker()
+        if monster_name in card_list:
+            break
+        else:
+            easygui.msgbox("Monster does not exist.")
+
     if monster_name in card_list:
         confirmation = easygui.ynbox(f"Do you really want to delete "
                                      f"{monster_name}?")
@@ -172,6 +187,27 @@ def delete_monster(monster_name):
 
         else:
             easygui.msgbox("Returning to main menu.")
+
+
+def search_monster():
+    while True:
+        monster_name = name_checker()
+
+        if monster_name in card_list:
+            msg = f"{monster_name}'s stat: \n\n"
+            for stat, value in card_list[monster_name].items():
+                msg += f"{stat}: {value}\n"
+            break
+        else:
+            easygui.msgbox(f"{monster_name} is not on the list.")
+    confirmation = easygui.buttonbox(f"{msg}"
+                                     "\nAre these details all correct?",
+                                     choices=["Confirm", "Change stats"])
+    if confirmation == "Confirm":
+        easygui.msgbox("Return to main menu...")
+        return
+    else:
+        change_stats(monster_name)
 
 
 def display_monsters():
