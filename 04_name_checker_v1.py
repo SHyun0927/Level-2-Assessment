@@ -37,7 +37,10 @@ def main():
         elif choice == "Search monster":
             name = name_checker()
             if name is not None:
-                easygui.msgbox(f"{name} is availiable.")
+                if name not in card_list:
+                    easygui.msgbox(f"{name} is availiable.")
+                else:
+                    easygui.msgbox(f"{name} is already taken.")
 
         elif choice == "Exit":
             easygui.msgbox("Thank you for playing monster card game!")
