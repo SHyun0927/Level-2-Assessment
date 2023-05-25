@@ -70,7 +70,8 @@ def add_monster_card():
         easygui.msgbox("Monster card added successfully!")
 
     elif choice == "Change Stats":
-        change_stats(name)
+        # change_stats(name)
+        easygui.msgbox("change_stats(name)")
 
 
 # Function to display list of monsters in the dictionary
