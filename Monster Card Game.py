@@ -205,7 +205,7 @@ def change_stats(monster_name):
 
             # If the user cancels, return to the main menu
             if new_name == "InvalidValue":
-                return
+                break
 
             # If the new name is valid,
             # update the dictionary and display a success message
