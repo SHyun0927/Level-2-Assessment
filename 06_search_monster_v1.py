@@ -56,6 +56,10 @@ def search_monster():
             for stat, value in card_list[monster_name].items():
                 msg += f"{stat}: {value}\n"
             break
+
+        elif monster_name is None:
+            return
+
         else:
             easygui.msgbox(f"{monster_name} is not on the list.")
     confirmation = easygui.buttonbox(f"{monster_name}'s stat:\n\n"

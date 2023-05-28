@@ -22,24 +22,29 @@ card_list = {
 # Function that adds monster card into the dictionary.
 def name_checker():
     while True:
-        name = easygui.enterbox("Enter the name of the monster:")
+        monster_name = easygui.enterbox("Enter the name of the monster:")
 
-        if name is None:
-            easygui.msgbox("Going back to main menu.")
+        if monster_name is None:
+            easygui.msgbox("Return to the main menu.")
             return
 
-        name = name.capitalize()
+        monster_name = monster_name.capitalize()
 
-        if not name:
+        if not monster_name:
             easygui.msgbox("Error: Name cannot be empty.")
 
         else:
-            return name
+            return monster_name
 
 
 # Function that adds monster card into the dictionary.
-def add_monster_card():
-    monster_name = name_checker()
+def add_monster_card(monster_name):
+    while True:
+        if monster_name in card_list:
+            easygui.msgbox("Monster already in list.")
+            return
+        else:
+            break
 
     card_list[monster_name] = {"Strength": 0, "Speed": 0, "Stealth": 0, "Cunning": 0}
 

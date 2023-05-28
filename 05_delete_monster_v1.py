@@ -45,6 +45,9 @@ def delete_monster():
             else:
                 easygui.msgbox("Returning to main menu.")
                 break
+        elif monster_name is None:
+            return
+
         else:
             easygui.msgbox("Monster does not exist.")
 

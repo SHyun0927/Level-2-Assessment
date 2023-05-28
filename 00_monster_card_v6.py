@@ -48,17 +48,18 @@ def main():
                 if monster_name not in card_list:
                     easygui.msgbox("Name not found in the list")
 
-                else:
+                elif monster_name == "InvalidValue":
                     break
-            change_stats(monster_name)
+
+                else:
+                    change_stats(monster_name)
+                    break
+
         elif choice == "Delete monster":
             delete_monster()
 
-        elif choice == "Search monster":
-            search_monster()
-
         else:
-            easygui.msgbox("This function has not finished yet!")
+            search_monster()
 
 
 def name_checker():
@@ -67,7 +68,7 @@ def name_checker():
 
         if name is None:
             easygui.msgbox("Going back to main menu.")
-            return
+            return "InvalidValue"
 
         name = name.capitalize()
 
@@ -80,7 +81,17 @@ def name_checker():
 
 # Function that adds monster card into the dictionary.
 def add_monster_card():
-    monster_name = name_checker()
+    while True:
+        monster_name = name_checker()
+
+        if monster_name in card_list:
+            easygui.msgbox(f"{monster_name} already exists. Try again.")
+
+        elif monster_name == "InvalidValue":
+            return
+
+        else:
+            break
 
     card_list[monster_name] = {"Strength": 0, "Speed": 0,
                                "Stealth": 0, "Cunning": 0}
@@ -173,6 +184,10 @@ def delete_monster():
         monster_name = name_checker()
         if monster_name in card_list:
             break
+
+        elif monster_name == "InvalidValue":
+            return
+
         else:
             easygui.msgbox("Monster does not exist.")
 
@@ -198,6 +213,9 @@ def search_monster():
             for stat, value in card_list[monster_name].items():
                 msg += f"{stat}: {value}\n"
             break
+        elif monster_name == "InvalidValue":
+            return
+
         else:
             easygui.msgbox(f"{monster_name} is not on the list.")
     confirmation = easygui.buttonbox(f"{msg}"
